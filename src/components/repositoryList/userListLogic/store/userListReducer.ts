@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUserReposState, Repositories } from "../interfaces/interfaces";
+import { IUserReposState } from "../interfaces/interfaces";
 import { getUserRepos } from "./thunk";
 
-const userReposState: IUserReposState = {
+const userReposState: IUserReposState  = {
   userRepos: {},
   cachedUserPages: [],
   currentPage: 0,
@@ -13,10 +13,10 @@ const userSlice = createSlice({
   name: "userList",
   initialState: userReposState,
   reducers: {
-    incrementCurrentPage: (state: any): void => {
+    incrementCurrentPage: (state: IUserReposState): void => {
       state.currentPage++;
     },
-    decrementCurrentPage: (state: any): void => {
+    decrementCurrentPage: (state: IUserReposState): void => {
       state.currentPage--;
     },
   },
@@ -29,15 +29,18 @@ const userSlice = createSlice({
       })
       .addCase(fulfilled, (state, action) => {
         state.isLoading = false;
-          state.userRepos = action.payload;
-          if (state.cachedUserPages.length === 0) {
-              state.cachedUserPages = [state.userRepos.data?.viewer.repositories];
-          } else {
-              state.cachedUserPages = [
-                ...state.cachedUserPages,
-                state.userRepos.data?.viewer.repositories,
-              ];
-          }
+        state.userRepos = action.payload;
+        if (
+          state.cachedUserPages.length === 0 &&
+          state.userRepos.data?.viewer.repositories
+        ) {
+          state.cachedUserPages = [state.userRepos.data?.viewer.repositories];
+        } else if (state.userRepos.data?.viewer.repositories) {
+          state.cachedUserPages = [
+            ...state.cachedUserPages,
+            state.userRepos.data?.viewer.repositories,
+          ];
+        }
       })
       .addCase(rejected, (state) => {
         state.isLoading = false;

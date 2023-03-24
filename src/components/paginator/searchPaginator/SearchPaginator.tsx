@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/store";
-import { searchListActions } from "../../repositoryList/searchList/store/searchListReducer";
-import { getSearchRepos } from "../../repositoryList/searchList/store/thunk";
+import { searchListActions } from "../../repositoryList/searchListLogic/store/searchListReducer";
+import { getSearchRepos } from "../../repositoryList/searchListLogic/store/thunk";
 
 const SearchPaginator = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import { FC } from 'react';
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../store/store";
-import Modal from "../../modal/Modal";
+import { ItemRepositoryProps } from './interfaces/interfaces';
 import styles from "./RepositoryItem.module.css";
 import { repositoryActions } from './store/repositoryStore';
-import { getCurrentRepository } from "./store/thunk";
-const RepositoryItem = ({ item }: any) => {
-  const dispatch = useDispatch<AppDispatch>();
+import { getCurrentRepository } from "./store/thunk"; 
 
-  const handleRepositoryClick = () => {
+const RepositoryItem :FC<ItemRepositoryProps>= ({item}): JSX.Element => {
+ 
+  const dispatch = useDispatch<AppDispatch>();
+  const handleRepositoryClick = ():void => {
       dispatch(getCurrentRepository({ name: item.name, owner: item.owner.login }));
       dispatch(repositoryActions.setModalActive(true))
   };

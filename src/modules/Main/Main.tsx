@@ -1,17 +1,13 @@
-import { useSelector } from "react-redux";
 import Modal from '../../components/modal/Modal';
-import SearchList from "../../components/repositoryList/searchList/SearchList";
-import UserList from "../../components/repositoryList/userList/UserList";
-import {  RootState } from "../../store/store";
+import RepositoryList from '../../components/repositoryList/RepositoryList';
 
 const Main = () => {
-  const isSearching = useSelector(
-    (state: RootState) => state.storeList.currentSearchRequest
-  );
+
+    
     return (
       <>
-            {isSearching ? <SearchList /> : <UserList />}
-            <Modal/>
+            <RepositoryList/>
+            <Modal />
         
       </>
     );

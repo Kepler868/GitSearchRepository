@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Paginator from '../components/paginator/Paginator';
-import { getUserRepos } from "../components/repositoryList/userList/store/thunk";
-import UserList from "../components/repositoryList/userList/UserList";
+import { getUserRepos } from "../components/repositoryList/userListLogic/store/thunk";
 import Header from "../modules/Header/Header";
 import Main from '../modules/Main/Main';
 import { AppDispatch } from "../store/store";

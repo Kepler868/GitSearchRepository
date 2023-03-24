@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../../../store/store";
-import { ISearchReposList } from "../interfaces/interfaces";
+import { ISearchReposList} from "../interfaces/interfaces";
 import { getSearchRepos } from "./thunk";
 
 const searchReposState: ISearchReposList = {
@@ -8,8 +7,8 @@ const searchReposState: ISearchReposList = {
   cachedPages: [],
   isLoading: true,
   currentSearchRequest: "",
-    currentPaginationRequest: "",
-    currentPage: 0
+  currentPaginationRequest: "",
+  currentPage: 0,
 };
 
 const searchSlice = createSlice({
@@ -29,17 +28,15 @@ const searchSlice = createSlice({
       state.currentPaginationRequest = action.payload;
     },
     incrementCurrentPage: (state: ISearchReposList): void => {
-        state.currentPage++;
- 
+      state.currentPage++;
     },
     decrementCurrentPage: (state: ISearchReposList): void => {
-        state.currentPage--;
-
-      },
-      setNewRequest: (state: ISearchReposList):void => {
-          state.cachedPages = [];
-          state.currentPage = 0
-    }
+      state.currentPage--;
+    },
+    setNewRequest: (state: ISearchReposList): void => {
+      state.cachedPages = [];
+      state.currentPage = 0;
+    },
   },
   extraReducers: (builder) => {
     const { pending, fulfilled, rejected } = getSearchRepos;
@@ -52,11 +49,15 @@ const searchSlice = createSlice({
         state.isLoading = false;
         state.searchRepos = action.payload;
         if (
-          state.cachedPages.length === 0 ||
-          state.currentPaginationRequest !== state.currentSearchRequest
+          state.searchRepos.data?.search &&
+          (state.cachedPages.length === 0 ||
+            state.currentPaginationRequest !== state.currentSearchRequest)
         ) {
-          state.cachedPages = [state.searchRepos.data?.search];
-        } else if (state.currentPaginationRequest === state.currentSearchRequest) {
+          state.cachedPages = [state.searchRepos.data?.search] ;
+        } else if (
+          state.searchRepos.data?.search &&
+          state.currentPaginationRequest === state.currentSearchRequest
+        ) {
           state.cachedPages = [...state.cachedPages, state.searchRepos.data?.search];
         }
       })

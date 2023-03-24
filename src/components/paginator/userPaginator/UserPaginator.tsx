@@ -2,8 +2,8 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../store/store';
-import { getUserRepos } from '../../repositoryList/userList/store/thunk';
-import { userListActions } from '../../repositoryList/userList/store/userListReducer';
+import { getUserRepos } from '../../repositoryList/userListLogic/store/thunk';
+import { userListActions } from '../../repositoryList/userListLogic/store/userListReducer';
 
 const UserPaginator = () => {
     const dispatch = useDispatch<AppDispatch>()

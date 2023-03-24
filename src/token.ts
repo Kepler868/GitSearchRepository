@@ -5,7 +5,7 @@ export const GITHUB_API = `https://api.github.com/graphql`;
 
 export const token = API_TOKEN
   ? `bearer ${API_TOKEN}`
-  : `bearer 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`;
+  : `bearer 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`;
 
 
 

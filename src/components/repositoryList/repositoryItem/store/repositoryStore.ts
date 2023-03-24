@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../../../store/store";
-
+import { RepositoryList } from "../interfaces/interfaces";
 import { getCurrentRepository } from "./thunk";
 
-const repositoryState: any = {
+const repositoryState: RepositoryList = {
   repositoryData: {},
-  cachedRepository: [],
   activeModal: false,
+  isImageLoaded: false,
   isLoading: true,
 };
 
@@ -14,10 +13,12 @@ const repositorySlice = createSlice({
   name: "repositoryItem",
   initialState: repositoryState,
   reducers: {
-    setModalActive: (state: any, action: PayloadAction<boolean>): void => {
-      state.activeModal = action.payload
+    setModalActive: (state: RepositoryList, action: PayloadAction<boolean>): void => {
+      state.activeModal = action.payload;
     },
-    
+    setImageLoaded: (state: RepositoryList, action: PayloadAction<boolean>): void => {
+      state.isImageLoaded = action.payload;
+    },
   },
   extraReducers: (builder) => {
     const { pending, fulfilled, rejected } = getCurrentRepository;
@@ -29,6 +30,8 @@ const repositorySlice = createSlice({
       .addCase(fulfilled, (state, action) => {
         state.isLoading = false;
         state.repositoryData = action.payload;
+
+        
       })
       .addCase(rejected, (state) => {
         state.isLoading = false;

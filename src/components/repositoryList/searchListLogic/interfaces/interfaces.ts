@@ -1,26 +1,22 @@
 export interface ISearchReposList {
-  searchRepos: SearchRepos;
-  cachedPages: any;
+  searchRepos: SearchResponse;
+    cachedPages: SearchRepos[];
   isLoading: boolean;
   currentSearchRequest: string;
     currentPaginationRequest: string;
     currentPage: number;
 }
 
-export interface SearchRepos {
+
+export interface SearchResponse {
   data?: SearchData;
 }
-
-export interface CachedPages {
-    index?: number;
-    page?: Search;
-}
-
+ 
 export interface SearchData {
-  search: Search;
+  search: SearchRepos;
 }
 
-export interface Search {
+export interface SearchRepos {
   nodes: SearchNode[];
     pageInfo: PageInfo;
     repositoryCount: Number
@@ -31,7 +27,7 @@ export interface SearchNode {
   stargazerCount: number;
   updatedAt: string;
     url: string;
-    owner: Owner;
+    owner: SearchOwner;
 }
 
 export interface PageInfo {
@@ -41,6 +37,6 @@ export interface PageInfo {
   hasPreviousPage: boolean;
 }
 
-export interface Owner {
+export interface SearchOwner {
     login: string;
 }
