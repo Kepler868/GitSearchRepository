@@ -30,6 +30,7 @@ export interface UserNode {
   stargazerCount: number;
   updatedAt: string;
     url: string;
+    description: string;
     owner: UserOwner
 }
 

@@ -12,6 +12,7 @@ export const UNAUTHORIZED_QUERY = `query User ($after: String) {
         stargazerCount
         updatedAt
         url
+        description
         owner {
           login
         }
@@ -27,7 +28,7 @@ export const UNAUTHORIZED_QUERY = `query User ($after: String) {
 }
 `;
 
-export const  AUTHORIZED_QUERY = `query ExampleQuery( $after: String) {
+export const AUTHORIZED_QUERY = `query ExampleQuery( $after: String) {
   viewer {
     repositories(first: 10, after: $after) {
       totalCount
@@ -36,6 +37,7 @@ export const  AUTHORIZED_QUERY = `query ExampleQuery( $after: String) {
         stargazerCount
         updatedAt
         url
+        description
       }
       pageInfo {
         endCursor
@@ -46,6 +48,6 @@ export const  AUTHORIZED_QUERY = `query ExampleQuery( $after: String) {
     }
   }
 }
-`
+`;
 
 export const query = API_TOKEN ? AUTHORIZED_QUERY : UNAUTHORIZED_QUERY;

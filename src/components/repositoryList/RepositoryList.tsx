@@ -6,6 +6,7 @@ import { SearchNode, SearchRepos } from "./searchListLogic/interfaces/interfaces
 import uuid from "react-uuid";
 import { UserNode, UserRepos } from "./userListLogic/interfaces/interfaces";
 import { FC } from 'react';
+import styles from "./RepositoryList.module.css"
 
 const RepositoryList:FC = ():JSX.Element => {
   // Search List Consts
@@ -42,7 +43,7 @@ const RepositoryList:FC = ():JSX.Element => {
   const isLoading = selector ? isSearchLoading : isUserLoading;
   if (!isLoading) {
     return (
-      <div>
+      <div className={styles.mainlist}>
         {repositories[currentPage] &&
           repositories[currentPage].nodes.map((node: SearchNode | UserNode) => (
             <RepositoryItem key={uuid()} item={node} />
@@ -51,7 +52,9 @@ const RepositoryList:FC = ():JSX.Element => {
     );
   }
   else {
-      return <></>
+      return <div className={styles.mainlist}>
+          <div className={styles.loader}></div>
+      </div>
     }
 };
 

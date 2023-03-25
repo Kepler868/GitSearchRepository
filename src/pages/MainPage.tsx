@@ -5,7 +5,7 @@ import { getUserRepos } from "../components/repositoryList/userListLogic/store/t
 import Header from "../modules/Header/Header";
 import Main from '../modules/Main/Main';
 import { AppDispatch } from "../store/store";
-import "./mainPage.module.css";
+import styles from "./mainPage.module.css";
 
 const MainPage = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,7 +17,7 @@ const MainPage = (): JSX.Element => {
   const userRepos = useSelector((store) => store);
   console.log(userRepos);
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Header />
           <Main />
           <Paginator/>

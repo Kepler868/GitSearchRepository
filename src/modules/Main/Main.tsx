@@ -6,7 +6,7 @@ const Main = () => {
     
     return (
       <>
-            <RepositoryList/>
+            <RepositoryList />
             <Modal />
         
       </>

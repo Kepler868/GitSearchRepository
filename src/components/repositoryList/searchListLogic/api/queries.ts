@@ -6,6 +6,7 @@ export const SEARCH_QUERY = `query Search($query: String!, $after: String) {
         stargazerCount
         updatedAt
         url
+        description
         owner {
           login
         }

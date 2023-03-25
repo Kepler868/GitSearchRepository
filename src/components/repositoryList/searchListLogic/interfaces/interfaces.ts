@@ -27,6 +27,7 @@ export interface SearchNode {
   stargazerCount: number;
   updatedAt: string;
     url: string;
+    description: string;
     owner: SearchOwner;
 }
 
