@@ -17,7 +17,8 @@ export interface Repository {
   name: string;
   stargazerCount: number;
   updatedAt: string;
-  url: string;
+    url: string;
+    description: string;
   owner: Owner;
 
 }

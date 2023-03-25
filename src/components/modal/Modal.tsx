@@ -55,7 +55,7 @@ const Modal = () => {
       </div>
     );
   } else {
-    return <div>loader</div>;
+    return <div></div>;
   }
 };
 
