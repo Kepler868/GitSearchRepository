@@ -1,7 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 import SearchBar from '../../components/searchBar/SearchBar';
 import styles from "./Header.module.css"
-const Header = () => {
+
+const Header:FC = ():JSX.Element => {
     return (
       <div className={styles.header}>
         <SearchBar />

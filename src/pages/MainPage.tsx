@@ -1,26 +1,24 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Paginator from '../components/paginator/Paginator';
+import { FC, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { getUserRepos } from "../components/repositoryList/userListLogic/store/thunk";
+import Footer from '../modules/Footer/Footer';
 import Header from "../modules/Header/Header";
 import Main from '../modules/Main/Main';
 import { AppDispatch } from "../store/store";
 import styles from "./mainPage.module.css";
 
-const MainPage = (): JSX.Element => {
+const MainPage: FC = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
       dispatch(getUserRepos({}));
   }, [dispatch]);
 
-  const userRepos = useSelector((store) => store);
-  console.log(userRepos);
   return (
     <div className={styles.App}>
       <Header />
           <Main />
-          <Paginator/>
+          <Footer/>
     </div>
   );
 };

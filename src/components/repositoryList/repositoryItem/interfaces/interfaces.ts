@@ -19,8 +19,8 @@ export interface Repository {
   updatedAt: string;
     url: string;
     description: string;
-  owner: Owner;
-
+    owner: Owner;
+    languages?: Languages | undefined;
 }
 
 export interface ItemRepositoryProps {
@@ -29,7 +29,8 @@ export interface ItemRepositoryProps {
 
 export interface Owner {
   login: string;
- 
+  avatarUrl?: string;
+  url?: string;
 }
 
 export interface Languages {

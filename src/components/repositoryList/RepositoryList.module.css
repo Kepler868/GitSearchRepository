@@ -7,21 +7,29 @@
     height: 700px;
 }
 
+.mainlist_loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0e1218;
+    height: 700px;
+}
+
 .loader {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
 }
 .loader:after {
   content: " ";
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 200px;
+  height: 200px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  border: 6px solid #c9d1d9;
+  border-color: #c9d1d9 transparent #c9d1d9 transparent;
+  animation: loader 2.2s linear infinite;
 }
 @keyframes loader {
   0% {

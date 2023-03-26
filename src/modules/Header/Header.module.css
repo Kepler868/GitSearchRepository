@@ -1,11 +1,10 @@
 .header {
-
-    font-family: "Noto Sans", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #161b22;
-    color: white;
-    height: 100px;
-    width: 100vw;
+  font-family: "Noto Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #161b22;
+  color: white;
+  height: 100px;
+  width: 100vw;
 }

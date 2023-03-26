@@ -19,7 +19,7 @@
     width: 100%;
   padding: 8px 16px;
   border-radius: 8px;
-  border: 2px solid rgb(67, 67, 67);
+  border: 2px solid #434343;
   transition: all 0.3s;
 }
 
@@ -58,7 +58,7 @@
 .search_button {
   color: #d3dde6;
   font-size: 16px;
-  border: 2px solid rgb(67, 67, 67);
+  border: 2px solid #434343;
   background-color: #262b34;
   border-radius: 8px;
   padding: 8px 16px;
@@ -67,5 +67,5 @@
   cursor: pointer;
 }
 .search_button:hover {
-    background-color: rgb(67, 67, 67);
+    background-color: #434343;
 }

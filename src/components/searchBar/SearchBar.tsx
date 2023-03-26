@@ -4,10 +4,10 @@ import { AppDispatch } from "../../store/store";
 import { searchListActions } from "../repositoryList/searchListLogic/store/searchListReducer";
 import { getSearchRepos } from "../repositoryList/searchListLogic/store/thunk";
 import styles from "./SearchBar.module.css";
-import logo from "./logo.png";
-import home from "./home.png";
-import { FC } from 'react';
-const SearchBar:FC= (): JSX.Element => {
+import logo from "./images/logo.png";
+import home from "./images/home.png";
+import { FC } from "react";
+const SearchBar: FC = (): JSX.Element => {
   const [request, setRequest] = useState<string>("");
   const dispatch = useDispatch<AppDispatch>();
 
@@ -17,11 +17,11 @@ const SearchBar:FC= (): JSX.Element => {
     e.preventDefault();
     setRequest(e.target.value);
   };
-    
-    const handleHome = () => {
-        setRequest("")
-dispatch(searchListActions.setCurrentSearchRequest(""))
-    }
+
+  const handleHome = (): void => {
+    setRequest("");
+    dispatch(searchListActions.setCurrentSearchRequest(""));
+  };
 
   const handleFind = (): void => {
     dispatch(searchListActions.setCurrentSearchRequest(request));
@@ -30,9 +30,8 @@ dispatch(searchListActions.setCurrentSearchRequest(""))
   };
 
   return (
-      <div className={styles.input_block}>
-          
-      <img className={styles.search_img} src={logo} />
+    <div className={styles.input_block}>
+      <img className={styles.search_img} src={logo} alt=""/>
       <div className={styles.search_nav}>
         <a className={styles.input_title}>Search repository by name</a>
         <div className={styles.search}>
@@ -42,12 +41,16 @@ dispatch(searchListActions.setCurrentSearchRequest(""))
             onChange={handleSearch}
             value={request}
           ></input>
-          <button className={styles.search_button} onClick={() => handleFind()}>
+          <button
+            className={styles.search_button}
+            onClick={() => handleFind()}
+            onKeyDown={() => handleFind()}
+          >
             Search
           </button>
         </div>
       </div>
-      <img onClick={() => handleHome()} className={styles.search_home} src={home} />
+      <img onClick={() => handleHome()} className={styles.search_home} src={home} alt=""/>
     </div>
   );
 };

@@ -38,9 +38,9 @@ const RepositoryList:FC = ():JSX.Element => {
     (state: RootState) => state.storeList.currentSearchRequest
   );
   // Get list of repositories, currentPage and loading flag
-  const repositories = selector ? cachedSearchPages : cachedUserPages;
-  const currentPage = selector ? currentSearchPage : currentUserPage;
-  const isLoading = selector ? isSearchLoading : isUserLoading;
+  const repositories:SearchRepos[] | UserRepos[] = selector ? cachedSearchPages : cachedUserPages;
+  const currentPage:number = selector ? currentSearchPage : currentUserPage;
+  const isLoading:boolean = selector ? isSearchLoading : isUserLoading;
   if (!isLoading) {
     return (
       <div className={styles.mainlist}>
@@ -52,7 +52,7 @@ const RepositoryList:FC = ():JSX.Element => {
     );
   }
   else {
-      return <div className={styles.mainlist}>
+      return <div className={styles.mainlist_loader}>
           <div className={styles.loader}></div>
       </div>
     }

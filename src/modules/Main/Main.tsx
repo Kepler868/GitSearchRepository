@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import Modal from '../../components/modal/Modal';
 import RepositoryList from '../../components/repositoryList/RepositoryList';
 
-const Main = () => {
+const Main:FC = ():JSX.Element => {
 
     
     return (

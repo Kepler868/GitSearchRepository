@@ -1,56 +1,58 @@
-import React from "react";
+import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { searchListActions } from "../repositoryList/searchListLogic/store/searchListReducer";
 import { getSearchRepos } from "../repositoryList/searchListLogic/store/thunk";
 import { getUserRepos } from "../repositoryList/userListLogic/store/thunk";
 import { userListActions } from "../repositoryList/userListLogic/store/userListReducer";
-import SearchPaginator from "./searchPaginator/SearchPaginator";
-import UserPaginator from "./userPaginator/UserPaginator";
-import styles from "./Paginator.module.css"
+import styles from "./Paginator.module.css";
+import { UserPageInfo } from "../repositoryList/userListLogic/interfaces/interfaces";
+import { PageInfo } from "../repositoryList/searchListLogic/interfaces/interfaces";
 
-const Paginator = () => {
+const Paginator: FC = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
-  const selector = useSelector(
+  const selector: string = useSelector(
     (state: RootState) => state.storeList.currentSearchRequest
   );
   // User List Consts
 
-  const currentUserPage = useSelector((state: RootState) => state.userList.currentPage);
-  const cachedUserPagesLength = useSelector(
+  const currentUserPage: number = useSelector(
+    (state: RootState) => state.userList.currentPage
+  );
+  const cachedUserPagesLength: number = useSelector(
     (state: RootState) => state.userList.cachedUserPages.length
   );
-  const userRepoCount = useSelector(
+  const userRepoCount: number = useSelector(
     (state: RootState) => state.userList.userRepos.data?.viewer.repositories.totalCount
   ) as number;
-  const userCursor = useSelector(
+  const userCursor: UserPageInfo | undefined = useSelector(
     (state: RootState) => state.userList.userRepos.data?.viewer.repositories.pageInfo
   );
 
   // Search List consts
 
-  const currentSearchPage = useSelector(
-    (state: RootState): number => state.storeList.currentPage
+  const currentSearchPage: number = useSelector(
+    (state: RootState) => state.storeList.currentPage
   );
-  const cachedSearchPagesLength = useSelector(
+  const cachedSearchPagesLength: number = useSelector(
     (state: RootState) => state.storeList.cachedPages.length
   );
-  const currentSearchRequest = useSelector(
-    (state: RootState): string => state.storeList.currentSearchRequest
+  const currentSearchRequest: string = useSelector(
+    (state: RootState) => state.storeList.currentSearchRequest
   );
 
-  const searchRepoCount = useSelector(
+  const searchRepoCount: number = useSelector(
     (state: RootState) =>
       state.storeList.searchRepos.data?.search.repositoryCount as number
   );
 
-  const searchCursor = useSelector(
+  const searchCursor: PageInfo | undefined = useSelector(
     (state: RootState) => state.storeList.searchRepos.data?.search.pageInfo
   );
 
   // Handlers
 
-  const handleNextPage = () => {
+  const handleNextPage = (): void => {
     if (!selector) {
       if (currentUserPage + 2 > cachedUserPagesLength) {
         dispatch(getUserRepos({ after: userCursor?.endCursor }));
@@ -66,17 +68,21 @@ const Paginator = () => {
     }
   };
 
-  const handlePrevPage = () => {
+  const handlePrevPage = (): void => {
     !selector
       ? dispatch(userListActions.decrementCurrentPage())
       : dispatch(searchListActions.decrementCurrentPage());
   };
 
-  const disabledButton = !selector ? currentUserPage <= 0 : currentSearchPage <= 0;
-  const currentPage = !selector ? currentUserPage : currentSearchPage;
-  const repoCount = !selector ? userRepoCount : searchRepoCount;
-  const secondPageNumber = (currentPage + 1) * 10;
-  const firstPageNumber = secondPageNumber - 9;
+    // Current Paginator Consts
+    
+  const disabledButton: boolean = !selector
+    ? currentUserPage <= 0
+    : currentSearchPage <= 0;
+  const currentPage: number = !selector ? currentUserPage : currentSearchPage;
+  const repoCount: number = !selector ? userRepoCount : searchRepoCount;
+  const secondPageNumber: number = (currentPage + 1) * 10;
+  const firstPageNumber: number = secondPageNumber - 9;
 
   return (
     <div className={styles.paginator}>

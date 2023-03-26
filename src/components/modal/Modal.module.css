@@ -8,28 +8,82 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
   pointer-events: none;
   transition: 0.5s all;
 }
 
 .modal_active {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .content {
-padding: 20px;
-border-radius: 12px;
-background-color: white;
-height: 400px;
-width: 400px;
-transform: scale(0.5);
-transition: 0.5s all;
-
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #161b22;
+  border: 2px solid rgb(43, 46, 58);
+  width: 600px;
+  transform: scale(0.5);
+  transition: 0.5s all;
+  color: #c9d1d9;
 }
 
 .content_active {
-    transform: scale(1);
+  transform: scale(1);
+}
+
+.exit_button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.avatar_name {
+  display: flex;
+}
+
+
+.avatar img {
+  width: 180px;
+  border-radius: 10px;
+}
+
+.name_element {
+  text-align: left;
+  margin-left: 20px;
+  max-width: 400px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.update_stargazer {
+  margin-left: 5px;
+  display: flex;
+}
+
+.round {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgb(57, 57, 57);
+}
+
+.language {
+  font-size: 16px;
+  display: flex;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.language_block {
+  display: flex;
+  max-width: 400px;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-top: 20px;
+
 }
