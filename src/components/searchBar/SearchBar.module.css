@@ -16,7 +16,7 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
   background-color: #0e1218;
-    width: 100%;
+  width: 100%;
   padding: 8px 16px;
   border-radius: 8px;
   border: 2px solid #434343;
@@ -26,8 +26,8 @@
 .search_input:focus {
   color: rgba(255, 255, 255, 0.7);
   background-color: #0e1218;
-  border-color: rgba(255, 255, 255, 0.7);;
- outline: none;
+  border-color: rgba(255, 255, 255, 0.7);
+  outline: none;
 }
 
 .input_title {
@@ -50,9 +50,9 @@
 }
 
 .search {
-    margin-top: 10px;
-    width: 800px;
-    display: flex;
+  margin-top: 10px;
+  width: 800px;
+  display: flex;
 }
 
 .search_button {
@@ -67,5 +67,5 @@
   cursor: pointer;
 }
 .search_button:hover {
-    background-color: #434343;
+  background-color: #434343;
 }

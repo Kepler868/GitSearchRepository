@@ -30,8 +30,6 @@ const repositorySlice = createSlice({
       .addCase(fulfilled, (state, action) => {
         state.isLoading = false;
         state.repositoryData = action.payload;
-
-        
       })
       .addCase(rejected, (state) => {
         state.isLoading = false;

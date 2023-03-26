@@ -31,7 +31,7 @@ const SearchBar: FC = (): JSX.Element => {
 
   return (
     <div className={styles.input_block}>
-      <img className={styles.search_img} src={logo} alt=""/>
+      <img className={styles.search_img} src={logo} alt="" />
       <div className={styles.search_nav}>
         <a className={styles.input_title}>Search repository by name</a>
         <div className={styles.search}>
@@ -50,7 +50,12 @@ const SearchBar: FC = (): JSX.Element => {
           </button>
         </div>
       </div>
-      <img onClick={() => handleHome()} className={styles.search_home} src={home} alt=""/>
+      <img
+        onClick={() => handleHome()}
+        className={styles.search_home}
+        src={home}
+        alt=""
+      />
     </div>
   );
 };

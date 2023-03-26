@@ -2,11 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { GITHUB_API, token } from "../../../../token";
 import { SEARCH_QUERY } from "../api/queries";
-import { SearchResponse } from '../interfaces/interfaces';
+import { SearchResponse } from "../interfaces/interfaces";
 export interface SearchRequest {
   query: string;
-  after?: string ;
-
+  after?: string;
 }
 export const getSearchRepos = createAsyncThunk<
   SearchResponse,
@@ -20,8 +19,7 @@ export const getSearchRepos = createAsyncThunk<
         query: SEARCH_QUERY,
         variables: {
           query,
-            after,
-          
+          after,
         },
       },
       {

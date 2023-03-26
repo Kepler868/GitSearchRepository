@@ -1,7 +1,4 @@
-import { API_TOKEN } from '../../../../token';
-
-
-
+import { API_TOKEN } from "../../../../token";
 
 export const UNAUTHORIZED_QUERY = `query User ($after: String) {
   viewer:user(login: "kepler868") {

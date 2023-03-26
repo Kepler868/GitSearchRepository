@@ -17,10 +17,10 @@ export interface Repository {
   name: string;
   stargazerCount: number;
   updatedAt: string;
-    url: string;
-    description: string;
-    owner: Owner;
-    languages?: Languages | undefined;
+  url: string;
+  description: string;
+  owner: Owner;
+  languages?: Languages | undefined;
 }
 
 export interface ItemRepositoryProps {
@@ -41,7 +41,6 @@ export interface Language {
   name: string;
   color: string;
 }
-
 
 export interface RepositoryRequestArgs {
   name: string;

@@ -10,44 +10,32 @@ import { UserPageInfo } from "../repositoryList/userListLogic/interfaces/interfa
 import { PageInfo } from "../repositoryList/searchListLogic/interfaces/interfaces";
 
 const Paginator: FC = (): JSX.Element => {
+  
   const dispatch = useDispatch<AppDispatch>();
   const selector: string = useSelector(
     (state: RootState) => state.storeList.currentSearchRequest
   );
   // User List Consts
 
-  const currentUserPage: number = useSelector(
-    (state: RootState) => state.userList.currentPage
-  );
-  const cachedUserPagesLength: number = useSelector(
-    (state: RootState) => state.userList.cachedUserPages.length
-  );
-  const userRepoCount: number = useSelector(
-    (state: RootState) => state.userList.userRepos.data?.viewer.repositories.totalCount
-  ) as number;
-  const userCursor: UserPageInfo | undefined = useSelector(
-    (state: RootState) => state.userList.userRepos.data?.viewer.repositories.pageInfo
+  const currentUserPage: number = useSelector((state: RootState) => state.userList.currentPage );
+  const cachedUserPagesLength: number = useSelector((state: RootState) => state.userList.cachedUserPages.length);
+  const userRepoCount: number = useSelector((state: RootState) =>
+        state.userList.userRepos.data?.viewer.repositories.totalCount) as number;
+    const userCursor: UserPageInfo | undefined = useSelector((state: RootState) =>
+        state.userList.userRepos.data?.viewer.repositories.pageInfo
   );
 
   // Search List consts
 
-  const currentSearchPage: number = useSelector(
-    (state: RootState) => state.storeList.currentPage
-  );
-  const cachedSearchPagesLength: number = useSelector(
-    (state: RootState) => state.storeList.cachedPages.length
-  );
-  const currentSearchRequest: string = useSelector(
-    (state: RootState) => state.storeList.currentSearchRequest
-  );
+  const currentSearchPage: number = useSelector((state: RootState) => state.storeList.currentPage);
+  const cachedSearchPagesLength: number = useSelector((state: RootState) => state.storeList.cachedPages.length);
+  const currentSearchRequest: string = useSelector((state: RootState) => state.storeList.currentSearchRequest);
 
-  const searchRepoCount: number = useSelector(
-    (state: RootState) =>
-      state.storeList.searchRepos.data?.search.repositoryCount as number
-  );
+  const searchRepoCount: number = useSelector((state: RootState) =>
+      state.storeList.searchRepos.data?.search.repositoryCount as number);
 
-  const searchCursor: PageInfo | undefined = useSelector(
-    (state: RootState) => state.storeList.searchRepos.data?.search.pageInfo
+    const searchCursor: PageInfo | undefined = useSelector((state: RootState) =>
+        state.storeList.searchRepos.data?.search.pageInfo
   );
 
   // Handlers
@@ -74,11 +62,9 @@ const Paginator: FC = (): JSX.Element => {
       : dispatch(searchListActions.decrementCurrentPage());
   };
 
-    // Current Paginator Consts
-    
-  const disabledButton: boolean = !selector
-    ? currentUserPage <= 0
-    : currentSearchPage <= 0;
+  // Current Paginator Consts
+
+  const disabledButton: boolean = !selector ? currentUserPage <= 0 : currentSearchPage <= 0;
   const currentPage: number = !selector ? currentUserPage : currentSearchPage;
   const repoCount: number = !selector ? userRepoCount : searchRepoCount;
   const secondPageNumber: number = (currentPage + 1) * 10;

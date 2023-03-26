@@ -1,18 +1,18 @@
 .mainlist {
-    background-color: #0e1218;
-    color: #c9d1d9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 700px;
+  background-color: #0e1218;
+  color: #c9d1d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 700px;
 }
 
 .mainlist_loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0e1218;
-    height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0e1218;
+  height: 700px;
 }
 
 .loader {

@@ -17,4 +17,4 @@ export const REPOSITORY_QUERY = `query Query($name: String!, $owner: String!) {
     }
     
   }
-}`
+}`;

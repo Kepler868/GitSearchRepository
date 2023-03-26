@@ -29,13 +29,13 @@ export interface UserNode {
   name: string;
   stargazerCount: number;
   updatedAt: string;
-    url: string;
-    description: string;
-    owner: UserOwner
+  url: string;
+  description: string;
+  owner: UserOwner;
 }
 
 export interface UserOwner {
-    login: string;
+  login: string;
 }
 
 export interface UserPageInfo {
@@ -44,7 +44,6 @@ export interface UserPageInfo {
   hasNextPage: boolean;
   hasPreviousPage: boolean;
 }
-
 
 export interface UserListRequestArgs {
   after?: string;

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IUserReposState } from "../interfaces/interfaces";
 import { getUserRepos } from "./thunk";
 
-const userReposState: IUserReposState  = {
+const userReposState: IUserReposState = {
   userRepos: {},
   cachedUserPages: [],
   currentPage: 0,

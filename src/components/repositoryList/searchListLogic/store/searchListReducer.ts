@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISearchReposList} from "../interfaces/interfaces";
+import { ISearchReposList } from "../interfaces/interfaces";
 import { getSearchRepos } from "./thunk";
 
 const searchReposState: ISearchReposList = {
@@ -53,7 +53,7 @@ const searchSlice = createSlice({
           (state.cachedPages.length === 0 ||
             state.currentPaginationRequest !== state.currentSearchRequest)
         ) {
-          state.cachedPages = [state.searchRepos.data?.search] ;
+          state.cachedPages = [state.searchRepos.data?.search];
         } else if (
           state.searchRepos.data?.search &&
           state.currentPaginationRequest === state.currentSearchRequest

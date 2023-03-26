@@ -9,11 +9,14 @@ import dayjs from "dayjs";
 import star from "./images/star.png";
 
 const RepositoryItem: FC<ItemRepositoryProps> = ({ item }): JSX.Element => {
-  const dispatch = useDispatch<AppDispatch>();
+
+    const dispatch = useDispatch<AppDispatch>();
+    
   const handleRepositoryClick = (): void => {
     dispatch(getCurrentRepository({ name: item.name, owner: item.owner.login }));
     dispatch(repositoryActions.setModalActive(true));
   };
+    
   const name: string =
     `${item.owner.login}/${item.name}`.length > 40
       ? `${item.owner.login}/${item.name}`.substring(0, 40)

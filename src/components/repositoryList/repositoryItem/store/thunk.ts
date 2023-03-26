@@ -1,9 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { REPOSITORY_QUERY} from "../api/queries";
-import { GITHUB_API, token } from '../../../../token';
-import { RepositoryData, RepositoryRequestArgs } from '../interfaces/interfaces';
-
+import { REPOSITORY_QUERY } from "../api/queries";
+import { GITHUB_API, token } from "../../../../token";
+import { RepositoryData, RepositoryRequestArgs } from "../interfaces/interfaces";
 
 export const getCurrentRepository = createAsyncThunk<
   RepositoryData,
@@ -16,8 +15,8 @@ export const getCurrentRepository = createAsyncThunk<
       {
         query: REPOSITORY_QUERY,
         variables: {
-            name,
-            owner
+          name,
+          owner,
         },
       },
       {

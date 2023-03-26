@@ -17,7 +17,7 @@ export interface Language {
   color: string;
 }
 export interface Owner {
-    login: string;
-    avatarUrl?: string;
-    url?: string;
+  login: string;
+  avatarUrl?: string;
+  url?: string;
 }

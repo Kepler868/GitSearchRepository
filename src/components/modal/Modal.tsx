@@ -14,20 +14,15 @@ import {
 import { ModalRepository } from './interfaces/interface';
 
 const Modal: FC = (): JSX.Element => {
+
   const dispatch = useDispatch<AppDispatch>();
-  const activeModal: Boolean = useSelector(
-    (state: RootState) => state.repositoryList.activeModal
-  );
-  const repositoryList: RepositoryList = useSelector(
-    (state: RootState) => state.repositoryList
-  );
-  const isLoading: Boolean = useSelector(
-    (state: RootState) => state.repositoryList.isLoading
-  );
+    
+  const activeModal: Boolean = useSelector((state: RootState) => state.repositoryList.activeModal);
+  const repositoryList: RepositoryList = useSelector((state: RootState) => state.repositoryList);
+  const isLoading: Boolean = useSelector((state: RootState) => state.repositoryList.isLoading);
 
   const handleClose = (): void => {
-    dispatch(repositoryActions.setModalActive(false));
-  };
+    dispatch(repositoryActions.setModalActive(false));};
 
   if (!isLoading && repositoryList.repositoryData.data?.repository) {
     const repository: ModalRepository = repositoryList.repositoryData.data?.repository;
