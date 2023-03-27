@@ -1,8 +1,4 @@
-# GitSearchRepository
-
-
-
-# Githb Search Repository
+# Github Search Repository
 
 <table>
 <tr>
@@ -67,4 +63,4 @@ Open deployed application at the address specified in the terminal with your bro
 
 - [Axios](https://axios-http.com/docs/intro)
 
-- CSS modules For CSS styles.
+- CSS modules - for CSS styles.
