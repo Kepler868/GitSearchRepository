@@ -1,5 +1,4 @@
 # GitSearchRepository
-Git Repository Search by name
 
 Your Repositories on default page
 
@@ -47,7 +46,7 @@ First, run the development server:
 
 ```bash
 npm run dev
-
+```
 
 Open deployed application at the address specified in the terminal with your browser to see the result.
 
