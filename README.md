@@ -1,5 +1,18 @@
 # GitSearchRepository
 
+
+
+# Githb Search Repository
+
+<table>
+<tr>
+<td>
+  
+  Vite-packed react app where you can find repository by name. Made with GraphQL GITHUB API.
+</tr>
+</table>
+
+
 Your Repositories on default page
 
 ![SearchScreen](https://user-images.githubusercontent.com/105875420/227927926-bdbd68ad-85f5-4c35-a961-b6b6d27dff65.png)
@@ -12,16 +25,6 @@ Modal window for profile
 
 ![ModalWindow](https://user-images.githubusercontent.com/105875420/227932780-31084d1d-5950-43b5-a14e-93a9d15a51e9.png)
 
-
-# Githb Search Repository
-
-<table>
-<tr>
-<td>
-  
-  Vite-packed react app where you can find repository by name. Made with GraphQL GITHUB API.
-</tr>
-</table>
 
 ## Install
 
@@ -64,4 +67,4 @@ Open deployed application at the address specified in the terminal with your bro
 
 - [Axios](https://axios-http.com/docs/intro)
 
-- [CSS modules] For CSS styles.
+- CSS modules For CSS styles.
