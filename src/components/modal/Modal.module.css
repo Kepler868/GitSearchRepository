@@ -23,6 +23,7 @@
   border-radius: 12px;
   background-color: #161b22;
   border: 2px solid rgb(43, 46, 58);
+  min-height: 185px;
   width: 600px;
   transform: scale(0.5);
   transition: 0.5s all;
